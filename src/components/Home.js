@@ -38,6 +38,13 @@ const Home = ({updateFav, fav}) => {
     getTop();
   },[]);
 
+  const subChange = (aa, a, b, c)=>{
+    setMovies(aa)
+    a.classList.add("active");
+    b.classList.remove("active");
+    c.classList.remove("active");
+  }
+
   const changeList = (el)=> {
     const topM = document.getElementById("top")
     const upM = document.getElementById("up")
@@ -45,34 +52,19 @@ const Home = ({updateFav, fav}) => {
     
     switch (el.id) {
       case "top":
-        setMovies(top)
-        topM.classList.add("active")
-        upM.classList.remove("active")
-        nowM.classList.remove("active")
-        break
-      case "":
-        setMovies(top)
-        topM.classList.add("active")
-        upM.classList.remove("active")
-        nowM.classList.remove("active")
+        subChange(top, topM, upM, nowM);
         break
       case "up":
-        setMovies(up)
-        topM.classList.remove("active")
-        upM.classList.add("active")
-        nowM.classList.remove("active")
+        subChange(up, upM, topM, nowM);
         break
       case "now":
-        setMovies(now)
-        topM.classList.remove("active")
-        upM.classList.remove("active")
-        nowM.classList.add("active")
+        subChange(now, nowM, topM, upM);
         break
       case "search":
         setMovies([])
-        topM.classList.remove("active")
-        upM.classList.remove("active")
-        nowM.classList.remove("active")
+        topM.classList.remove("active");
+        upM.classList.remove("active");
+        nowM.classList.remove("active");
         break
     }
   }

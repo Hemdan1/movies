@@ -18,7 +18,8 @@ const Card = ({movieList, updateFav, fav}) => {
                     <div className="movie">
                         {/* <div className="cover" style={{width:200, height:300,
                             backgroundImage:`url(${getPP(movie.poster_path)})`}}></div> */}
-                        <img className="cover" src={`${getPP(movie.poster_path)}`}></img>
+                        
+                        {movie.poster_path&&(<img className="cover" src={`${getPP(movie.poster_path)}`}></img>)}
                         <div className="data">
                             <h4 className="title"> {movie.title} </h4>
                             <p className="date"> {movie.release_date} </p>
